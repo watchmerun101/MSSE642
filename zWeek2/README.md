@@ -39,3 +39,4 @@ Work as a group to complete this project. Assign roles for:
 - Submit Project 1 documentation in `weekly-projects/`.
 - Recommended filename: `project-1-labsetup.md`
 - Store supporting screenshots and topology diagrams in `images/`.
+- Direct link: [Project 1 Lab Setup Write-up](../weekly-projects/project-1-labsetup.md)

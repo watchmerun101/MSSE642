@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentication Failures Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">OWASP A07:2025 · Authentication Failures</p>
+        <h1>Authentication Failures Lab</h1>
+        <p class="lede">
+          Compare intentionally insecure authentication behavior against a hardened flow.
+          Use the guided scenarios to see how weak login controls, poor password policy, and unsafe session handling change the outcome.
+        </p>
+      </div>
+      <div class="hero-stats">
+        <article>
+          <span>Mode</span>
+          <strong>Side-by-side</strong>
+        </article>
+        <article>
+          <span>Focus</span>
+          <strong>Login abuse</strong>
+        </article>
+        <article>
+          <span>Evidence</span>
+          <strong>Screenshot-ready</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="panel panel-danger" aria-labelledby="insecure-title">
+        <div class="panel-head">
+          <p class="panel-kicker">Insecure Flow</p>
+          <h2 id="insecure-title">Broken Authentication</h2>
+        </div>
+
+        <form class="auth-form" data-mode="insecure" autocomplete="off">
+          <label>
+            Username
+            <input name="username" type="text" value="admin" />
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" value="123456" />
+          </label>
+          <button type="submit">Attempt Login</button>
+        </form>
+
+        <div class="scenario-buttons" aria-label="Insecure scenarios">
+          <button type="button" data-scenario="bruteforce">Brute-force test</button>
+          <button type="button" data-scenario="weak-password">Weak password accepted</button>
+          <button type="button" data-scenario="session">Predictable session</button>
+        </div>
+
+        <div class="result-card">
+          <p class="result-label">Current result</p>
+          <p class="result-value" data-result="insecure">Waiting for test...</p>
+        </div>
+      </article>
+
+      <article class="panel panel-safe" aria-labelledby="secure-title">
+        <div class="panel-head">
+          <p class="panel-kicker">Secure Flow</p>
+          <h2 id="secure-title">Hardened Authentication</h2>
+        </div>
+
+        <form class="auth-form" data-mode="secure" autocomplete="off">
+          <label>
+            Username
+            <input name="username" type="text" value="admin" />
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" value="Str0ng!Pass2026" />
+          </label>
+          <button type="submit">Attempt Login</button>
+        </form>
+
+        <div class="scenario-buttons" aria-label="Secure scenarios">
+          <button type="button" data-scenario="bruteforce">Rate-limited login</button>
+          <button type="button" data-scenario="weak-password">Weak password rejected</button>
+          <button type="button" data-scenario="session">Random session</button>
+        </div>
+
+        <div class="result-card">
+          <p class="result-label">Current result</p>
+          <p class="result-value" data-result="secure">Waiting for test...</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="log-panel">
+      <div class="panel-head">
+        <p class="panel-kicker">Audit Trail</p>
+        <h2>Findings log</h2>
+      </div>
+      <div id="log" class="log" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

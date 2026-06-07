@@ -11,17 +11,17 @@ This folder stores diagrams, screenshots, and visual evidence used throughout we
 
 ## Recommended Naming
 Use consistent, descriptive names:
-- week-02-pen-test-topology.png
-- week-04-stride-threat-model.png
-- week-06-zap-scan-results.png
+- week2-pen-test-topology.png
+- week4-stride-threat-model.png
+- week6-zap-scan-results.png
 - final-presentation-architecture.png
 
 ## Usage in Markdown
 Reference images from markdown files with relative paths.
 
 Examples:
-- From root README: `![Threat Model](images/week-04-stride-threat-model.png)`
-- From a week folder README: `![Threat Model](../images/week-04-stride-threat-model.png)`
+- From root README: `![Threat Model](images/week4-stride-threat-model.png)`
+- From a week folder README: `![Threat Model](../images/week4-stride-threat-model.png)`
 
 ## Quality Guidelines
 - Prefer PNG for diagrams and screenshots.
@@ -34,4 +34,5 @@ Add a short index below as you add assets:
 
 | File | Used In | Description |
 |---|---|---|
-| _(add file)_ | _(add markdown file)_ | _(what it shows)_ |
+| week2-lab-architecture.excalidraw | weekly-projects/project-1-labsetup.md | Editable Excalidraw source for the Project 1 VM topology diagram. |
+| week2-lab-architecture.png | weekly-projects/project-1-labsetup.md | Exported VM topology showing Kali attacker, Metasploitable target, and shared virtual network. |
