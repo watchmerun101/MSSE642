@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Injection Evidence Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">OWASP A05:2025 · Injection</p>
+        <h1>Injection Evidence Lab</h1>
+        <p class="lede">
+          Enter attack payloads and watch how insecure query construction mutates application logic.
+          Compare the same payload against secure handling that validates input and keeps query behavior safe.
+        </p>
+      </div>
+      <div class="hero-badge">
+        <p>Method Shift</p>
+        <strong>UI demo + automated tests</strong>
+      </div>
+    </section>
+
+    <section class="controls">
+      <label for="payload">Payload input</label>
+      <div class="input-row">
+        <input id="payload" type="text" value="' OR '1'='1" autocomplete="off">
+        <button id="run-demo" type="button">Run comparison</button>
+      </div>
+      <div class="preset-buttons">
+        <button type="button" data-preset="tautology">Tautology payload</button>
+        <button type="button" data-preset="union">UNION-style payload</button>
+        <button type="button" data-preset="comment">Comment-termination payload</button>
+        <button type="button" data-preset="normal">Normal input</button>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="panel panel-danger" aria-labelledby="insecure-title">
+        <div class="panel-head">
+          <p class="panel-kicker">Insecure Flow</p>
+          <h2 id="insecure-title">Concatenated Query</h2>
+        </div>
+        <div class="output-block">
+          <p class="output-label">Constructed query</p>
+          <pre id="insecure-query">Waiting for payload...</pre>
+        </div>
+        <div class="output-block">
+          <p class="output-label">Result</p>
+          <p id="insecure-result">No test yet.</p>
+        </div>
+      </article>
+
+      <article class="panel panel-safe" aria-labelledby="secure-title">
+        <div class="panel-head">
+          <p class="panel-kicker">Secure Flow</p>
+          <h2 id="secure-title">Validated + Parameterized</h2>
+        </div>
+        <div class="output-block">
+          <p class="output-label">Query handling</p>
+          <pre id="secure-query">Waiting for payload...</pre>
+        </div>
+        <div class="output-block">
+          <p class="output-label">Result</p>
+          <p id="secure-result">No test yet.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="log-panel">
+      <div class="panel-head">
+        <p class="panel-kicker">Execution Log</p>
+        <h2>Payload impact history</h2>
+      </div>
+      <div id="log" class="log" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="security-core.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

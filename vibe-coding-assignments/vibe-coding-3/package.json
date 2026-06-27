@@ -1,0 +1,9 @@
+{
+  "name": "vibe-coding-3-injection-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OWASP Injection demo with insecure and secure query handling plus automated tests",
+  "scripts": {
+    "test": "node --test security-core.test.js"
+  }
+}

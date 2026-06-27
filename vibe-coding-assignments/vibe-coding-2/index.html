@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Broken Access Control Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">OWASP A01:2025 · Broken Access Control</p>
+        <h1>Access Control Lab</h1>
+        <p class="lede">
+          Compare an insecure authorization model against a hardened one.
+          Test admin-only actions, record ownership checks, and privilege changes to see why
+          deny-by-default and server-side authorization are essential.
+        </p>
+      </div>
+      <div class="hero-stats">
+        <article>
+          <span>Mode</span>
+          <strong>Side-by-side</strong>
+        </article>
+        <article>
+          <span>Focus</span>
+          <strong>Authorization</strong>
+        </article>
+        <article>
+          <span>Evidence</span>
+          <strong>Scenario-driven</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="panel panel-danger" aria-labelledby="insecure-title">
+        <div class="panel-head">
+          <p class="panel-kicker">Insecure Flow</p>
+          <h2 id="insecure-title">Missing Authorization Checks</h2>
+        </div>
+
+        <form class="control-form" data-mode="insecure" autocomplete="off">
+          <label>
+            Actor role
+            <select name="role">
+              <option value="user" selected>user</option>
+              <option value="admin">admin</option>
+            </select>
+          </label>
+          <label>
+            Actor user ID
+            <input name="actorId" type="number" min="1" value="2">
+          </label>
+          <label>
+            Target record ID
+            <input name="recordId" type="number" min="101" value="101">
+          </label>
+          <button type="submit">Run Access Check</button>
+        </form>
+
+        <div class="scenario-buttons" aria-label="Insecure scenarios">
+          <button type="button" data-scenario="admin-action">Bypass admin gate</button>
+          <button type="button" data-scenario="idor">IDOR record read</button>
+          <button type="button" data-scenario="promote">Self-promote role</button>
+        </div>
+
+        <div class="result-card">
+          <p class="result-label">Current result</p>
+          <p class="result-value" data-result="insecure">Waiting for test...</p>
+        </div>
+      </article>
+
+      <article class="panel panel-safe" aria-labelledby="secure-title">
+        <div class="panel-head">
+          <p class="panel-kicker">Secure Flow</p>
+          <h2 id="secure-title">Role + Ownership Enforcement</h2>
+        </div>
+
+        <form class="control-form" data-mode="secure" autocomplete="off">
+          <label>
+            Actor role
+            <select name="role">
+              <option value="user" selected>user</option>
+              <option value="admin">admin</option>
+            </select>
+          </label>
+          <label>
+            Actor user ID
+            <input name="actorId" type="number" min="1" value="2">
+          </label>
+          <label>
+            Target record ID
+            <input name="recordId" type="number" min="101" value="101">
+          </label>
+          <button type="submit">Run Access Check</button>
+        </form>
+
+        <div class="scenario-buttons" aria-label="Secure scenarios">
+          <button type="button" data-scenario="admin-action">Admin gate enforced</button>
+          <button type="button" data-scenario="idor">IDOR blocked</button>
+          <button type="button" data-scenario="promote">Role change denied</button>
+        </div>
+
+        <div class="result-card">
+          <p class="result-label">Current result</p>
+          <p class="result-value" data-result="secure">Waiting for test...</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="log-panel">
+      <div class="panel-head">
+        <p class="panel-kicker">Audit Trail</p>
+        <h2>Authorization findings log</h2>
+      </div>
+      <div id="log" class="log" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
