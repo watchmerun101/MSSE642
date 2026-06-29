@@ -109,18 +109,10 @@ Network and platform controls:
 
 ### Deliverable 2A: Architecture Diagram
 
-[Architecture diagram will be inserted after final image export is available]
-
-Example format:
 ![Infrastructure Diagram](../images/HikingClub_Diagram.png)
 
 Diagram source file:
-- ../images/project2-hiking-club-architecture.excalidraw
-
-Diagram placeholder notes:
-- Show web, app, and database tiers
-- Show trust boundaries between public and private zones
-- Show major data flows (login, event registration, payment, admin actions)
+- ../images/HikingClub_Diagram.excalidraw
 
 ### Deliverable 2B: STRIDE Threat Model
 
