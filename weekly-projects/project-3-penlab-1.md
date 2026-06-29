@@ -1,10 +1,5 @@
 # Project 3 - Penetration Testing Lab 1
 
-**Course:** MSSE642  
-**Project:** Project 3 - Penetration Lab 1  
-**Author:** William Priddy  
-**Date:** 28 June 2026  
-
 ## Overview
 
 Project 3 documents the application security testing work completed in the isolated lab environment created earlier in the course. The goal is to use OWASP-aligned testing methods to identify security weaknesses in 2-3 targets, capture evidence, and prepare the work for continued analysis in Week 7.
@@ -28,15 +23,7 @@ Out of scope are destructive actions, production systems, denial-of-service test
 | Kali Linux VM | Attacking and testing workstation |
 | Metasploitable 2 | Vulnerable target host |
 | Host-only or isolated network | Safe lab connectivity |
-
-| Tool | Purpose |
-|---|---|
-| OWASP ZAP | Crawling and web testing |
-| Burp Suite Community | Intercepting proxy and request review |
 | Nessus Essentials | Vulnerability discovery and prioritization |
-| Nikto | Web server and configuration checks |
-| curl | Manual request testing |
-| Browser DevTools | Inspecting cookies, headers, and page source |
 
 ## Part 1 - Getting the Lab Running
 

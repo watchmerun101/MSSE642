@@ -60,5 +60,7 @@ All course projects and security vulnerability analyses completed. Ready for adv
 ## Submission Target
 - Submit Project 4 documentation in `weekly-projects/`.
 - Recommended filename: `project-4-penlab-2.md`
+- Current submission filename in this repo: `project4-penlab2.md` at `weekly-projects/project4-penlab2.md`.
+- Execution guide for Project 4: `weekly-projects/project-4-guide.md`.
 - Submit final presentation package in `research-presentation/` before end of Week 8.
 - Keep final evidence visuals in `images/` and link them in project and presentation docs.

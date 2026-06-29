@@ -1,14 +1,7 @@
 # Project 2: Secure Design Document & Threat Model Assessment
 
 ## Hiking Club Web Application
-
-**Course:** MSSE642  
-**Project:** Project 2 - Threat Analysis  
-**Author:** William Priddy  
-**Date:** 27 June 2026  
-
 ---
-
 ## Part 1: Secure Design Document
 
 ### 1.1 Project Description
